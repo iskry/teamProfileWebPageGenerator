@@ -122,7 +122,6 @@ inquirer.prompt(rolesArr)
     } else if (role.continue === 'Add Intern') {
         init(internRole);
     } else {
-      console.log(officeArr)
         generateHTML(officeArr);
     }
 })
