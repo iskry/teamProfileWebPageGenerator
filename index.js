@@ -14,6 +14,14 @@ const managerRole = [
       name: 'role',
       type: 'confirm',
       message: 'Team Profile Generator. Would you like to create a new Team Profile?',
+  },  
+  {
+      name: 'confirmManager',
+      type: 'list',
+      message: "Press enter to confirm",
+      choices: [
+        'Manager'
+    ]
   },
   {
       name: 'name',
@@ -49,6 +57,14 @@ const managerRole = [
 
 const engineerRole = [
   {
+    name: 'confirmEngineer',
+    type: 'list',
+    message: "Press enter to confirm",
+    choices: [
+      'Engineer'
+  ]
+  },
+  {
       name: 'name',
       type: 'input',
       message: 'Enter the name of the new engineer',
@@ -82,6 +98,14 @@ const engineerRole = [
 
 const internRole = [
   {
+    name: 'confirmIntern',
+    type: 'list',
+    message: "Press enter to confirm",
+    choices: [
+      'Intern'
+  ]
+  },
+  {
       name: 'name',
       type: 'input',
       message: 'Enter the name of the new intern',
@@ -114,7 +138,7 @@ const internRole = [
 ];
 
 function init(rolesArr) {
-inquirer.prompt(rolesArr)
+ inquirer.prompt(rolesArr)
   .then((role) => {
     officeArr.push(role);
     if (role.continue === 'Add Engineer') {
@@ -123,6 +147,9 @@ inquirer.prompt(rolesArr)
         init(internRole);
     } else {
         generateHTML(officeArr);
+fs.writeFileSync(`./dist/index.html`, `
+</body>
+</html>`, {flag: 'a'})
     }
 })
 .catch((err) => console.log(err));
