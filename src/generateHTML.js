@@ -13,8 +13,14 @@ writeFileSync(`./dist/index.html`, `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Team Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">  
 </head>
 <body>
+  <header class="text-center text-light">
+   <h1 class="p-3">My Team</h1>
+  </header>
+
+<div class="team">
 `)
   for (const employee of res) {
     if (employee.confirmIntern === "Intern") {
@@ -22,12 +28,12 @@ writeFileSync(`./dist/index.html`, `
     writeFileSync(`./dist/index.html`, `
 <div class="card intern" style="width: 18rem;">
 <div class="card-header">
-  Intern
+${employee.name}
+Intern
 </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">${employee.name}</li>
       <li class="list-group-item">${employee.id}</li>
-      <li class="list-group-item">${employee.email}</li>
+      <li class="list-group-item"><a href = "mailto: ${employee.email}">${employee.email}</a></li>
       <li class="list-group-item">${employee.school}</li>
     </ul>
 </div>
@@ -38,13 +44,13 @@ writeFileSync(`./dist/index.html`, `
       writeFileSync(`./dist/index.html`, `
   <div class="card engineer" style="width: 18rem;">
   <div class="card-header">
-    Engineer
+${employee.name}
+Engineer
   </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${employee.name}</li>
         <li class="list-group-item">${employee.id}</li>
-        <li class="list-group-item">${employee.email}</li>
-        <li class="list-group-item">${employee.github}</li>
+        <li class="list-group-item"><a href = "mailto: ${employee.email}">${employee.email}</a></li>
+        <li class="list-group-item"><a href="${employee.github}">${employee.github}</a></li>
       </ul>
   </div>
   `, {flag: 'a'})
@@ -54,12 +60,12 @@ writeFileSync(`./dist/index.html`, `
     writeFileSync(`./dist/index.html`, `
 <div class="card manager" style="width: 18rem;">
 <div class="card-header">
-  Manager
+${employee.name}  
+Manager
 </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">${employee.name}</li>
       <li class="list-group-item">${employee.id}</li>
-      <li class="list-group-item">${employee.email}</li>
+      <li class="list-group-item"><a href = "mailto: ${employee.email}">${employee.email}</a></li>
       <li class="list-group-item">${employee.officeNumber}</li>
     </ul>
 </div>

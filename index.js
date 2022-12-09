@@ -148,6 +148,7 @@ function init(rolesArr) {
     } else {
         generateHTML(officeArr);
 fs.writeFileSync(`./dist/index.html`, `
+</div>
 </body>
 </html>`, {flag: 'a'})
     }

@@ -1,0 +1,42 @@
+body {
+    background-color: #404258;
+}
+header {
+    background-color: #474E68;
+    border: 2px solid #6B728E;
+    border-radius: 10px;
+}
+
+.list-group-item {
+    background-color:#50577A;
+}
+.team {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.engineer {
+    margin: 50px;
+    background-color: #474E68;
+    color: white;
+    order: 2; 
+    border: 2px solid #6B728E;
+    border-radius: 10px;
+}
+.manager {
+    margin: 50px;
+    background-color: #474E68;
+    color: white;
+    order: 1; 
+    border: 2px solid #6B728E;
+    border-radius: 10px;
+}
+.intern { 
+    margin: 50px;
+    background-color: #474E68;
+    color: white;
+    order: 3;
+    border: 2px solid #6B728E;
+    border-radius: 10px; 
+}
+
