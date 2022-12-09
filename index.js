@@ -1,14 +1,18 @@
 // required modules
 const inquirer = require("inquirer")
 const fs = require("fs");
+// links to JS file to generate HTML
 const generateHTML = require("./src/generateHTML.js")
+// for jest tests
 const Employee = require("./lib/Employee.js")
 const Engineer = require("./lib/Engineer.js")
 const Intern = require("./lib/Intern.js")
 const Manager = require("./lib/Manager.js")
 
+// init array to hold role objects
 const officeArr = []
 
+// inquirer questions for manager role
 const managerRole = [
   {
       name: 'role',
@@ -55,6 +59,7 @@ const managerRole = [
   },
 ];
 
+// inquirer questions for engineer role
 const engineerRole = [
   {
     name: 'confirmEngineer',
@@ -96,6 +101,7 @@ const engineerRole = [
   },
 ];
 
+// inquirer questions for intern role
 const internRole = [
   {
     name: 'confirmIntern',
@@ -137,16 +143,22 @@ const internRole = [
   },
 ];
 
+// main function takes previously defined role inquirer questions as a paramter
 function init(rolesArr) {
  inquirer.prompt(rolesArr)
   .then((role) => {
+    // pushes pushes role to office array
     officeArr.push(role);
+    // if "Add Engineer" is selected calls init function and passes engineer inquirer questions
     if (role.continue === 'Add Engineer') {
         init(engineerRole);
+    // if "Add Intern" is selected calls init function and passes intern inquirer questions
     } else if (role.continue === 'Add Intern') {
         init(internRole);
     } else {
+    // passes office array to the generateHTML function
         generateHTML(officeArr);
+// used to finish HTML 
 fs.writeFileSync(`./dist/index.html`, `
 </div>
 </body>

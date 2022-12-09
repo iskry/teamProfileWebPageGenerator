@@ -22,6 +22,7 @@ writeFileSync(`./dist/index.html`, `
 
 <div class="team">
 `)
+// loops through pased through array and goes through each role
   for (const employee of res) {
     if (employee.confirmIntern === "Intern") {
       console.log(employee)

@@ -15,6 +15,8 @@ header {
     justify-content: center;
     margin-top: 5%;
 }
+
+/* general styling for each role and reorders role cards to manager > engineer > intern */
 .engineer {
     margin: 50px;
     background-color: #474E68;
